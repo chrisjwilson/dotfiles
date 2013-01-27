@@ -7,24 +7,32 @@ alias ~="cd ~" # `cd` is probably faster to type though
 alias -- -="cd -"
 
 # Shortcuts
-alias d="cd ~/Dropbox"
-alias p="cd ~/Projects"
+#alias d="cd ~/Dropbox"
+alias s="cd ~/src"
+alias p="cd ~/src/planspot"
 alias g="git"
+alias gs="git status"
+alias ga="git add"
+alias gap="git add -p"
+alias gc="git commit"
+alias gd="git diff"
 alias h="history"
 alias j="jobs"
-alias v="vim"
-alias m="mate ."
-alias s="subl ."
+#alias v="vim"
+#alias m="mate ."
+#alias s="subl ."
 alias o="open"
 alias oo="open ."
+alias emacs="open /Applications/Emacs.app"
+alias e="open /Applications/Emacs.app"
 
 alias hist='history | grep $1' #Requires one input
 
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
-	colorflag="--color"
+        colorflag="--color"
 else # OS X `ls`
-	colorflag="-G"
+        colorflag="-G"
 fi
 
 # List all files colorized in long format
@@ -51,7 +59,7 @@ alias update='sudo softwareupdate -i -a; brew update; brew upgrade; npm update n
 
 # IP addresses
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
-alias localip="ipconfig getifaddr en1"
+alias localip="ipconfig getifaddr en0"
 alias ips="ifconfig -a | grep -o 'inet6\? \(\([0-9]\+\.[0-9]\+\.[0-9]\+\.[0-9]\+\)\|[a-fA-F0-9:]\+\)' | sed -e 's/inet6* //'"
 
 # Enhanced WHOIS lookups
@@ -64,7 +72,7 @@ alias flush="dscacheutil -flushcache && killall -HUP mDNSResponder"
 alias lscleanup="/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user && killall Finder"
 
 # View HTTP traffic
-alias sniff="sudo ngrep -d 'en1' -t '^(GET|POST) ' 'tcp and port 80'"
+alias sniff="sudo ngrep -d 'en0' -t '^(GET|POST) ' 'tcp and port 80'"
 alias httpdump="sudo tcpdump -i en1 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET \/.*\""
 
 # Canonical hex dump; some systems have this symlinked
@@ -133,12 +141,3 @@ function pman {
 if [[ "$OSTYPE" == "darwin"* ]]; then
     alias man="pman"
 fi
-
-alias kd="cd /opt/kDeploy/tools"
-alias ks="cd /opt/kServer"
-
-alias varnishon='iptables -t nat -A PREROUTING -i eth0 -p tcp -m tcp --dport 80 -j REDIRECT --to-ports 6081;iptables -t nat -A PREROUTING -i eth0 -p tcp -m tcp --dport 6081 -j REDIRECT --to-ports 80'
-alias varnishoff='iptables -t nat -D PREROUTING -i eth0 -p tcp -m tcp --dport 80 -j REDIRECT --to-ports 6081;iptables -t nat -D PREROUTING -i eth0 -p tcp -m tcp --dport 6081 -j REDIRECT --to-ports 80'
-alias varnishstatus='iptables -L -t nat |grep -q 6081; if [ "test$?" = "test0" ]; then echo "Varnish On"; else echo "Varnish Off"; fi'
-
-
