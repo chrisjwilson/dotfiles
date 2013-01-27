@@ -38,3 +38,15 @@ set convert-meta off
 
 # Use Alt/Meta + Delete to delete the preceding word
 "\e[3;3~": kill-word
+
+# Use ctrl+shift + arrows to jump words
+#"\e[1;6D": backward-word
+#"\e[1;6C": forward-word
+
+# use alt + arrows to jump words
+"\e\e[D": backward-word
+"\e\e[C": forward-word
+
+# Use alt+shift + arrows to go home and end
+"\e[1;10D": beginning-of-line
+"\e[1;10C": end-of-line
