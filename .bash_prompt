@@ -13,5 +13,10 @@ export PROMPT_DIRTRIM=3
 #if [[ ${EUID} == 0 ]] ; then
 #        PS1='zz\[\033[0;33m\][\[\033[0;36m\]\u\[\033[0;36m\]@\[\033[0;36m\]\h \[\033[1;31m\]\w\[\033[0;33m\]]\[\033[0;31m\]$(__git_ps1 "(%s)")\[\033[0;37m\]\\$ \[\033[00m\]'
 #else
-        PS1='\[\033[0;33m\][\[\033[0;32m\w\[\033[0;33m\]]\[\033[0;31m\]$(__git_ps1 "(%s)")\[\033[0;37m\]\\$ \[\033[00m\]'
+#        PS1='\[\033[0;33m\][\[\033[0;32m\w\[\033[0;33m\]]\[\033[0;31m\]$(__git_ps1 "(%s)")\[\033[0;37m\]\\$ \[\033[00m\]'
 #fi
+
+
+
+# Having problems with the above prompts, so this is one that is less clean, but works - there are additional colours at the beginning that need removing
+PS1='\[\033[0;33m\][\[\033[0;36m\]\[\033[0;36m\]\[\033[0;36m\]\[\033[0;32m\]\w\[\033[0;33m\]]\[\033[0;31m\]$(__git_ps1 "(%s)")\[\033[0;37m\]\\$ \[\033[00m\]'
