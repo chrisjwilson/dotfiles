@@ -75,9 +75,11 @@
 [credential]
         helper = osxkeychain
 [user]
-        name = Chris Wilson
-        email = chris@cjetech.co.uk
+	name = Chris Wilson
+	email = chris@cjetech.co.uk
 [push]
 #	default = simple
 [remote "origin"]
 #	push = HEAD
+[push]
+	default = simple
