@@ -18,8 +18,8 @@ alias j="jobs"
 #alias s="subl ."
 alias o="open"
 alias oo="open ."
-alias emacs="open /Applications/Emacs.app"
-alias e="open /Applications/Emacs.app"
+alias emacs='open -a Emacs $1'
+alias e='open -a Emacs $1'
 
 # Autocomplete for 'g' as well
 complete -o default -o nospace -F _git g
