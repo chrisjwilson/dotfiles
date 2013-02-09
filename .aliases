@@ -20,6 +20,8 @@ alias o="open"
 alias oo="open ."
 alias emacs='open -a Emacs $1'
 alias e='open -a Emacs $1'
+#alias emacs="/Applications/Emacs.app/Contents/MacOS/bin/emacsclient -c"
+#alias es="/Applications/Emacs.app/Contents/MacOS/Emacs --daemon"
 
 # Autocomplete for 'g' as well
 complete -o default -o nospace -F _git g
