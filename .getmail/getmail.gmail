@@ -1,0 +1,11 @@
+[retriever]
+type = SimplePOP3SSLRetriever
+server = pop.gmail.com
+username = chris@cjetech.co.uk
+password = smwkhybwmzpjrzgt
+[destination]
+type = Mboxrd
+path = ~/gmail-archive/gmail-backup.mbox
+[options]
+verbose = 2
+message_log = ~/.getmail/gmail.log 
